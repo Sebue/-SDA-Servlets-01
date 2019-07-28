@@ -1,4 +1,4 @@
-package pl.sda.sex;
+package pl.sda.last;
 
 import com.google.common.collect.Lists;
 

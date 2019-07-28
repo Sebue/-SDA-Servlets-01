@@ -15,8 +15,7 @@ import java.util.logging.Logger;
 public class ServletToServlet extends HttpServlet {
 
     private static final Logger logger = Logger.getLogger(ServletToServlet.class.getSimpleName());
-    private static final String SERVER_ADDRESS
-            = "http://localhost:8080/servlets/randomJson";
+    private static final String SERVER_ADDRESS = "http://localhost:8080/servlets/randomJson";
     private static final String PARAMETER = "giveRandomNumber";
 
     protected void doGet(HttpServletRequest request,
@@ -26,7 +25,7 @@ public class ServletToServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         String giveRandomNumber = request.getParameter(PARAMETER);
 
-        if(giveRandomNumber.contains("true")){
+        if (giveRandomNumber.contains("true")) {
 //            JSONObject jsonObject = new JSONObject(getRandomNumber());
             writer.println("<h1>" + getRandomNumber() + "</h1>");
         } else {
@@ -35,10 +34,6 @@ public class ServletToServlet extends HttpServlet {
     }
 
     private String getRandomNumber() throws IOException {
-//        String query = String.format("param1=%s&param2=%s",
-//                URLEncoder.encode("param1Value", "UTF-8"),
-//                URLEncoder.encode("param1Value", "UTF-8"));
-
         URL url = new URL(SERVER_ADDRESS);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");

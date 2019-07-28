@@ -1,4 +1,4 @@
-package pl.sda.sex;
+package pl.sda.last;
 
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -8,8 +8,8 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.logging.Logger;
 
-import static pl.sda.sex.Greetings.ATTRIBUTE_NAME;
-import static pl.sda.sex.Greetings.NAME;
+import static pl.sda.last.Greetings.ATTRIBUTE_NAME;
+import static pl.sda.last.Greetings.NAME;
 
 @WebServlet("/genders")
 public class Genders extends HttpServlet {

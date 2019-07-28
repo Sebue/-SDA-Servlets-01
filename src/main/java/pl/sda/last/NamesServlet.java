@@ -1,4 +1,4 @@
-package pl.sda.sex;
+package pl.sda.last;
 
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;

@@ -23,15 +23,17 @@ public class LoggingServlet extends HttpServlet {
         response.setContentType("text/html");
         if (parameterValue == null) {
             logger.warning("Client used servlet incorrectly.");
+
         } else if (!parameterValue.equals("hello")) {
-            try{
+            try {
                 Integer integer = Integer.valueOf(parameterValue);
                 int i = 30 / integer;
                 writer.println("Wynik: " + i);
-            }catch(Exception e){
+            } catch (Exception e) {
                 logger.warning("Exception from: " + parameterValue);
                 logger.warning(Throwables.getStackTraceAsString(e));
             }
+
         } else {
             logger.info("Parameter value is " + parameterValue);
         }
