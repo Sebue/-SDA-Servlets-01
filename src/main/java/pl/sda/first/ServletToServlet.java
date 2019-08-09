@@ -5,7 +5,9 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import java.io.BufferedReader;
 import java.io.IOException;
+import java.io.InputStreamReader;
 import java.io.PrintWriter;
 import java.net.HttpURLConnection;
 import java.net.URL;
@@ -26,7 +28,6 @@ public class ServletToServlet extends HttpServlet {
         String giveRandomNumber = request.getParameter(PARAMETER);
 
         if (giveRandomNumber.contains("true")) {
-//            JSONObject jsonObject = new JSONObject(getRandomNumber());
             writer.println("<h1>" + getRandomNumber() + "</h1>");
         } else {
             writer.println("<h2>Done!</h2>");
@@ -38,9 +39,10 @@ public class ServletToServlet extends HttpServlet {
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();
         connection.setRequestMethod("GET");
 
-        connection.getContent();
+        connection.connect();
         logger.info("Response code: " + connection.getResponseCode());
-        return connection.getResponseMessage();
+        String line = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
+        return line;
     }
 
 
