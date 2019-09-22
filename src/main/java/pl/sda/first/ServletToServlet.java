@@ -19,6 +19,7 @@ public class ServletToServlet extends HttpServlet {
     private static final Logger logger = Logger.getLogger(ServletToServlet.class.getSimpleName());
     private static final String SERVER_ADDRESS = "http://localhost:8080/servlets/randomJson";
     private static final String PARAMETER = "giveRandomNumber";
+    private static final String EXPECTED_VALUE = "true";
 
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException {
@@ -27,7 +28,7 @@ public class ServletToServlet extends HttpServlet {
         PrintWriter writer = response.getWriter();
         String giveRandomNumber = request.getParameter(PARAMETER);
 
-        if (giveRandomNumber.contains("true")) {
+        if (EXPECTED_VALUE.equals(giveRandomNumber)) {
             writer.println("<h1>" + getRandomNumber() + "</h1>");
         } else {
             writer.println("<h2>Done!</h2>");
@@ -41,7 +42,9 @@ public class ServletToServlet extends HttpServlet {
 
         connection.connect();
         logger.info("Response code: " + connection.getResponseCode());
-        String line = new BufferedReader(new InputStreamReader(connection.getInputStream())).readLine();
+        String line = new BufferedReader(new InputStreamReader
+                (connection.getInputStream()))
+                .readLine();
         return line;
     }
 

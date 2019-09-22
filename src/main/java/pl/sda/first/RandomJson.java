@@ -13,6 +13,7 @@ import java.util.Random;
         urlPatterns = {"/getRandomNumber", "/randomJson"})
 public class RandomJson extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException {
 

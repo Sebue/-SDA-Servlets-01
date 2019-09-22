@@ -1,6 +1,5 @@
 package pl.sda.third;
 
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -15,7 +14,7 @@ import static pl.sda.third.RedirectParams.REDIRECT_PARAMETER;
 public class FinalServlet extends HttpServlet {
 
     protected void doGet(HttpServletRequest request,
-                         HttpServletResponse response) throws IOException, ServletException {
+                         HttpServletResponse response) throws IOException {
         String attributeValue = (String) request.getAttribute(REDIRECT_PARAMETER);
         PrintWriter writer = response.getWriter();
         response.setContentType("text/html");
