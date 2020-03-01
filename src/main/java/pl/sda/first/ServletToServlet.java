@@ -1,6 +1,7 @@
 package pl.sda.first;
 
 
+import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -21,6 +22,7 @@ public class ServletToServlet extends HttpServlet {
     private static final String PARAMETER = "giveRandomNumber";
     private static final String EXPECTED_VALUE = "true";
 
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException {
 

@@ -13,10 +13,13 @@ import java.util.logging.Logger;
 
 @WebServlet(urlPatterns = {"/logger", "/log"})
 public class LoggingServlet extends HttpServlet {
-    private static final Logger logger = Logger.getLogger(LoggingServlet.class.getSimpleName());
+    private static final Logger logger =
+            Logger.getLogger(LoggingServlet.class
+                    .getSimpleName());
     private static final String PARAMETER = "valid";
 
-    protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
+    protected void doGet(HttpServletRequest request, HttpServletResponse response)
+            throws IOException {
         String parameterValue = request.getParameter(PARAMETER);
 
         PrintWriter writer = response.getWriter();

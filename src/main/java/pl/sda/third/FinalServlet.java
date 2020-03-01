@@ -7,8 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.io.PrintWriter;
 
-import static pl.sda.third.RedirectParams.REDIRECT_PARAMETER;
-
+import static pl.sda.third.ForwardServlet.REDIRECT_PARAMETER;
 
 @WebServlet("/finalServlet")
 public class FinalServlet extends HttpServlet {
@@ -18,7 +17,12 @@ public class FinalServlet extends HttpServlet {
         String attributeValue = (String) request.getAttribute(REDIRECT_PARAMETER);
         PrintWriter writer = response.getWriter();
         response.setContentType("text/html");
-        writer.println("<h1>Hello, " + attributeValue + "!</h1>");
+        if (attributeValue != null) {
+            writer.println("<h1>Hello, " + attributeValue + "!</h1>");
+        } else {
+            //logger
+            writer.println("<h1>Unauthorized access!</h1>");
+        }
     }
 
 
