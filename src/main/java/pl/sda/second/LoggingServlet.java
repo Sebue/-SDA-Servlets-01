@@ -13,11 +13,10 @@ import java.util.logging.Logger;
 
 @WebServlet(urlPatterns = {"/logger", "/log"})
 public class LoggingServlet extends HttpServlet {
-    private static final Logger logger =
-            Logger.getLogger(LoggingServlet.class
-                    .getSimpleName());
+    private static final Logger logger = Logger.getLogger(LoggingServlet.class.getSimpleName());
     private static final String PARAMETER = "valid";
 
+    @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
             throws IOException {
         String parameterValue = request.getParameter(PARAMETER);
@@ -26,7 +25,6 @@ public class LoggingServlet extends HttpServlet {
         response.setContentType("text/html");
         if (parameterValue == null) {
             logger.warning("Client used servlet incorrectly.");
-
         } else if (!parameterValue.equals("hello")) {
             try {
                 Integer integer = Integer.valueOf(parameterValue);

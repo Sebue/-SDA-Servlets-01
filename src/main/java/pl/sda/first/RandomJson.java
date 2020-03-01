@@ -13,13 +13,12 @@ import java.util.logging.Logger;
 @WebServlet(name = "RandomJson",
         urlPatterns = {"/getRandomNumber", "/randomJson"})
 public class RandomJson extends HttpServlet {
-//    private static final Logger logger = Logger.getLogger(RandomJson.class.getSimpleName());
-
+    private static final Logger logger = Logger.getLogger(RandomJson.class.getSimpleName());
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws IOException {
-//        String remoteUser = request.getRemoteUser();
-//        logger.info("Kradziej kradnie mi losowe liczby z IP: " + remoteUser);
+        String remoteUser = request.getRemoteAddr();
+        logger.info("Kradziej kradnie mi losowe liczby z IP: " + remoteUser);
 
         PrintWriter writer = response.getWriter();
         response.setContentType("application/json");

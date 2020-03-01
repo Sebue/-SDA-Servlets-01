@@ -12,9 +12,10 @@ import static pl.sda.third.ForwardServlet.REDIRECT_PARAMETER;
 @WebServlet("/finalServlet")
 public class FinalServlet extends HttpServlet {
 
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException {
-        String attributeValue = (String) request.getAttribute(REDIRECT_PARAMETER);
+        String attributeValue = (String) request.getAttribute("name");
         PrintWriter writer = response.getWriter();
         response.setContentType("text/html");
         if (attributeValue != null) {

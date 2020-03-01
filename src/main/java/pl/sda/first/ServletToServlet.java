@@ -1,7 +1,5 @@
 package pl.sda.first;
 
-
-import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
@@ -36,7 +34,7 @@ public class ServletToServlet extends HttpServlet {
             writer.println("<h2>Done!</h2>");
         }
     }
-
+    
     private String getRandomNumber() throws IOException {
         URL url = new URL(SERVER_ADDRESS);
         HttpURLConnection connection = (HttpURLConnection) url.openConnection();

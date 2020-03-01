@@ -11,9 +11,9 @@ import java.io.PrintWriter;
 
 @WebServlet("/forward")
 public class ForwardServlet extends HttpServlet {
-
     public static final String REDIRECT_PARAMETER = "name";
 
+    @Override
     protected void doGet(HttpServletRequest request,
                          HttpServletResponse response) throws IOException, ServletException {
 
@@ -21,7 +21,7 @@ public class ForwardServlet extends HttpServlet {
         response.setContentType("text/html");
         writer.println("<h1>Strona przekierowania po stronie serwera - forward</h1>");
 
-//        request.setAttribute(REDIRECT_PARAMETER, "Sebastian");
+        request.setAttribute(REDIRECT_PARAMETER, "Sebastian");
         request.getRequestDispatcher("/finalServlet")
                 .forward(request, response);
     }
